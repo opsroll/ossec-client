@@ -1,0 +1,14 @@
+---
+# Fedora Installation
+- name: Add Yum Repository
+  shell: >
+    wget -q -O - https://updates.atomicorp.com/installers/atomic |sh
+- name: Install OSSEC libs
+  package: >
+    name=ossec-hids
+    state=installed
+  when: ansible_distribution == "Fedora"
+- name: Install OSSEC Client (Agent)
+  package: >
+    name=ossec-hids-client
+    state=installed
