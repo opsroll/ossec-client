@@ -1,0 +1,9 @@
+---
+
+- name: Ubuntu Precise Installation
+  include: precise.yml
+  when: (ansible_distribution == "Ubuntu" and ansible_distribution_release == "precise")
+
+- name: Fedora Installation
+  include: fedora.yml
+  when: (ansible_distribution == "Fedora")
