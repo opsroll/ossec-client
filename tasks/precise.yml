@@ -1,0 +1,15 @@
+---
+# Install OSSEC on Ubuntu Precise
+- name: Add APT Keys
+  apt_key: >
+    url=http://ossec.wazuh.com/repos/apt/conf/ossec-key.gpg.key
+    state=present
+- name: Add APT Repository
+  apt_repository: >
+    repo='deb http://ossec.wazuh.com/repos/apt/ubuntu precise main'
+    state=present
+- name: Install OSSEC libs
+  package: >
+    name=ossec-hids
+    state=installed
+  
